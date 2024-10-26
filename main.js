@@ -1,22 +1,18 @@
-function buttonClick() {
-    const peso = Number(prompt("Ei, qual é o peso?"));
-    const altura = Number(prompt("Ei, qual é a sua altura?"));
-    if (peso === 0 || altura === 0) {
-        alert("Peso ou altura não podem ser 0");
+function somaValores() {
+    const valor1 = prompt('Digite o primeiro valor a ser somado');
+
+    if (valor1 == null || valor1 == 0) {
+        alert('Operação cancelada');
         return;
     }
-    let imc = peso / (altura * altura);
 
-    switch (imc) {
-        case imc < 18.5:
-            document.querySelector('#aviso').innerHTML = "Abaixo do peso";
-            break;
-        case imc >= 18.5 && imc <= 24.9:
-            document.querySelector('#aviso').innerHTML = "Peso normal";
-            break;
-        case imc >= 25 && imc <= 29.9:
-            document.querySelector('#aviso').innerHTML = "Acima do peso";
-            break;
+    const valor2 = prompt('Digite o segundo valor a ser somado');
+
+    if (valor2 == null || valor2 == 0) {
+        alert('Operação cancelada');
+        return;
     }
-    document.querySelector('#nome').innerHTML = imc.toFixed(2);
+
+    const resultado = Number(valor1) + Number(valor2);
+    document.querySelector('#calculo').innerHTML = resultado;
 }
