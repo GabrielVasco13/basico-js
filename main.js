@@ -1,22 +1,20 @@
 function buttonClick() {
-    const peso = Number(prompt("Ei, qual é o peso?"));
-    const altura = Number(prompt("Ei, qual é a sua altura?"));
-    if (peso === 0 || altura === 0) {
-        alert("Peso ou altura não podem ser 0");
+    const texto = document.querySelector('#media');
+    const primeira_nota = Number(prompt("Digite a sua primeira nota!"));
+    const segunda_nota = Number(prompt("Digite a sua segunda nota!"));
+
+    // verificando se a nota é 0
+    if (primeira_nota == 0 || segunda_nota == 0) {
+        alert("0 não é um valor válido!");
         return;
     }
-    let imc = peso / (altura * altura);
 
-    switch (imc) {
-        case imc < 18.5:
-            document.querySelector('#aviso').innerHTML = "Abaixo do peso";
-            break;
-        case imc >= 18.5 && imc <= 24.9:
-            document.querySelector('#aviso').innerHTML = "Peso normal";
-            break;
-        case imc >= 25 && imc <= 29.9:
-            document.querySelector('#aviso').innerHTML = "Acima do peso";
-            break;
+    if (primeira_nota > 10 || segunda_nota > 10) {
+        alert("A nota máxima só vai até 10!");
+        return;
     }
-    document.querySelector('#nome').innerHTML = imc.toFixed(2);
+
+    const calculo = (primeira_nota + segunda_nota) / 2;
+
+    texto.innerHTML = `A média é: ${calculo}`;
 }
